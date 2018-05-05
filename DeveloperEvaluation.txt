@@ -1,0 +1,43 @@
+Web Application 
+	• Enter a string of numbers into a text box, delimited by ","
+		- Example: 1,2,3,4,5,6
+	• When user hits Enter key or hits the "Calculate" button
+		- As per the definitions at https://www.mathsisfun.com/data/central-measures.html, calculate the following using all the numbers
+			§ Average/Mean
+			§ Median
+			§ Mode
+		- Display the results somewhere on the page
+
+Project Set Up
+	• Using Visual Studio 2017 
+		- Community Edition can be downloaded at https://www.visualstudio.com/downloads/
+	• Open the solution
+	• Restore NuGet packages
+		- Should be able to right click on the solution, select "Restore NuGet Packages"
+	• Run in Debug
+		- Should open Chrome or another default browser and the "Developer Evaluation" page should come up
+	• Add your code!
+	• Done!
+
+Developer must:
+	• Have calculation code done in C#
+	• JavaScript/Angular must be used for: 
+		- Validation of entries
+	• Project must Compile successfully
+	• Run successfully in Debug
+
+Developer has total discretion on:
+	• How to design the UI in terms of element types, validations, styling, etc.
+	• How to design/architect their C# code
+	• Can add/remove anything they like in the project & solution
+
+Developer will be evaluated on:
+	• Correctness of results
+	• Overall design of the UI
+	• Overall design of the code including logic paths
+	• Cleanliness of the code
+
+Optional items Developers will be evaluated on:
+	• Successfully add unit tests for their logic
+	• Successfully use Angular 4 or 5 for the Web UI
+

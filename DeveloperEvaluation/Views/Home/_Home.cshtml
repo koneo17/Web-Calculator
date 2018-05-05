@@ -1,0 +1,55 @@
+﻿<!-- ko with: home -->
+@model DeveloperEvaluation.Models.Compute
+<div class="jumbotron">
+    <h1>Welcome,</h1>
+</div>
+<script>
+    //Validates User Input
+    function checkForm(form) {
+        var numberRGEX = /[0-9]+(,[0-9]+)*/
+        if (form.NumbersWithComma.value == "") {
+            alert("Empty Field: Please, enter numbers delimited by ','  and Calculate.");
+            form.NumbersWithComma.focus();
+            return false;
+        }
+        else if (!numberRGEX.test(form.NumbersWithComma.value)) {
+            alert("Error: Numbers must be all digits separated by ',' and cannot contain any characters.");
+            form.NumbersWithComma.focus();
+            return false;
+        }
+        else
+            return true;
+    }
+</script>
+<div>
+    <br /><br />
+    <div>
+        <form method="post" action="Home/Compute/@Model" onsubmit="return checkForm(this)">
+            <label class="lead">Enter numbers (delimited by ","): </label>
+            <input class="input-sm" type="text" id="NumbersWithComma" name="NumbersWithComma" />
+            <button type="submit" class="btn-lg">Calculate</button>
+            @Html.ActionLink("Clear", "Index", "Home", null, new { @class = "link" })
+            @*<button type="submit" class="btn-lg" onclick="javascript: form.action='Home/Index';">Clear</button>*@
+        </form>
+        @if (@Model != null)
+            {
+            <p class="h4">You entered: @Model.NumbersWithComma.Replace(',', ' ') </p> <br />
+            <p class="h4">The Average is: @Model.Average</p><br />
+            <p class="h4">The Median is: @Model.Median</p><br />
+
+            string Mode = string.Empty;
+
+            for (int i = 0; i < @Model.Mode?.Count(); i++)
+            {
+                Mode += @Model.Mode[i] + " ";
+            }
+            if (string.IsNullOrEmpty(Mode))
+            {
+                Mode = "None";
+            }
+            <p class="h4">The Mode is: @Mode</p>
+        }
+        @*<p>This section shows how you can call ASP.NET Web API to get the user details.</p>*@
+    </div>
+</div>
+<!-- /ko -->
